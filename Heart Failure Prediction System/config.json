@@ -1,0 +1,15 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/heart",
+    "prod_uri": "mysql://root:@localhost/heart",
+    "fb_url": "https://facebook.com/heartprediction",
+    "tw_url": "https://twitter.com/heartprediction",
+    "gh_url": "https://github.com/heartprediction",
+    "blog_name": "Heart Care",
+    "upload_location": "E:\\heart prediction project(college)\\final_project_my_version\\static"
+
+  }
+
+}

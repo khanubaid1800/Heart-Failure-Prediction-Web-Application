@@ -1,0 +1,9 @@
+male,age,cigsPerDay,BPMeds,prevalentStroke,prevalentHyp,diabetes,totChol,sysBP,diaBP,BMI,heartRate,glucose
+0,39,21,0,0,1,0,222,141,91,22.35,96,71
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+In male column:- 1 is for male and 0 is for female,,,,,,,,,,,,
+"For columns BPMeds, prevalentStroke, prevalentHyp, diabetes :-   1 stands for YES and 0 stands for NO",,,,,,,,,,,,
+"In Outcome column of result 1 statnds for YES, means will have heart disease in upcoming 10 years and 0 stands for NO, means  will not have heart disease in upcoming 10 years",,,,,,,,,,,,

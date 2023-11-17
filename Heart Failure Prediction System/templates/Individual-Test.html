@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+{% block title %}Individual_Test{% endblock title %}
+{% block body %}
+<!-- Page Header-->
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/individual.css')}}">
+</head>
+<header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/heart18.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>Predict the Health For Yor Heart!</h1>
+                    <h2 class="subheading">by giving input of 13 features....</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Fill out the below details to predict the chances of heart failure/disease.</p>
+                <div class="my-5">
+                    <form action="{{url_for('predict')}}" method="post" , class="indi">
+                        <div class="form-floating">
+                            <div class="col-md-4 form-group mt-3">
+                            <!-- <select name="gender" id="gender" class="input" required="required" >
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select>
+                            <input type="text" name="age" placeholder="Age " required="required" class="input">
+                            <input type="text" name="cigs" placeholder="Cigarette Per Day" required="required" class="input">
+                            <select name="BPMeds" id="BPMeds" class="input" required="required">
+                                <option value="">BPMeds</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <select name="Prevalent Stroke" id="Prevalent Stroke" class="input" required="required">
+                                <option value="">Prevalent Stroke</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <select name="Prevalent Hyp" id="Prevalent Hyp" class="input" required="required">
+                                <option value="">Prevalent Hyp</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <select name="Diabetes" id="Diabetes" class="input" required="required">
+                                <option value="">Diabetes</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <input type="text" name="totChol" placeholder="Total Cholesterol" required="required" class="input">
+                            <input type="text" name="sysBP" placeholder="sysBP:- Systolic blood pressure" required="required" class="input">
+                            <input type="text" name="diaBP" placeholder="diaBP:- Diastolic blood pressure" required="required" class="input">
+                            <input type="text" name="BMI" placeholder="BMI" required="required" class="input">
+                            <input type="text" name="HeartRate" placeholder="HeartRate" required="required"
+                                class="input">
+                            <input type="text" name="Glucose" placeholder="Glucose" required="required" class="input"> -->
+                            <!-- <span>Select Your Gender: - </span> -->
+                            <div class="mb-3 row">
+                                <label for="gender" class="form-label">Gender:-</label>
+                                <div class="col-sm-7">
+                                    <select name="gender" id="gender" class="input" required="required">
+                                        <option value="">Not Selected</option>
+                                        <option value="1">Male</option>
+                                        <option value="0">Female</option>
+                                    </select>
+                                </div>
+                            </div>                                
+                            <div class="mb-3 row">
+                                <label for="age" class="form-label">Age:- </label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="age" name="age" placeholder="Enter the Value Here" required="required" class="input">   
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="cigs" class="form-label">How Many Cigarette Do You Smoke a Day: -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="cigs" id="cigs" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="BPMeds" class="form-label">Do You Take BP Medicine: -</label>
+                                <div class="col-sm-10">
+                                    <select name="BPMeds" id="BPMeds" class="input" required="required">
+                                        <option value="">Not Selected</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="Prevalent Stroke" class="form-label">Have You Experience Prevalent Stroke: -</label>
+                                <div class="col-sm-10">
+                                   <select name="Prevalent Stroke" id="Prevalent Stroke" class="input" required="required">
+                                     <option value="">Not Selected</option>
+                                     <option value="1">Yes</option>
+                                     <option value="0">No</option>
+                                   </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="Prevalent Hyp" class="form-label">Have You Experience Prevalent Hypertension: -</label>
+                                <div class="col-sm-10">
+                                    <select name="Prevalent Hyp" id="Prevalent Hyp" class="input" required="required">
+                                      <option value="">Not Selected</option>
+                                      <option value="1">Yes</option>
+                                      <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="Diabetes" class="form-label">Do You Have Diabetes: -</label>
+                                <div class="col-sm-10">
+                                    <select name="Diabetes" id="Diabetes" class="input" required="required">
+                                        <option value="">Not Selected</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label for="totChol" class="form-label">Enter Your Total Cholesterol:-</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="totChol" id="totChol" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="sysBP" class="form-label">Enter You Systolic Blood Pressure(sysBP): -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="sysBP" id="sysBP" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="diaBP" class="form-label">Enter You Diastolic Blood Pressure(diaBP): -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="diaBP" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="BMI" class="form-label">Enter You BMI: -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="BMI" id="BMI" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="HeartRate" class="form-label">Enter You Heart Rate: -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="HeartRate" id="HeartRate" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="cigs" class="form-label">Enter You Glucose Value: -</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Glucose" placeholder="Enter the Value Here" required="required" class="input">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </form>
+                </div>
+
+                    <br>
+                    <br>
+                    <h2 style="color: blue; font-style:oblique ;">{{ prediction_text }}</h2>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
